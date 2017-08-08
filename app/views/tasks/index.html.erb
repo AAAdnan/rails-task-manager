@@ -1,0 +1,25 @@
+<div class = "container text-center">
+  <div class = "task-wrapper">
+    <h1>Tasks: Index</h1>
+
+    <% @tasks.each do |task| %>
+      <h2><%= task.name %></h2>
+      <p><%= task.description %></p>
+      <p><%= task.completed %></p>
+      <p> Task Number: <%= task.id %></p>
+
+      <div>
+        <%= link_to 'Select', task, class: 'btn btn-success' %>
+
+
+        <%= link_to "Delete" , task_path(task), method: :delete, data: { confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+
+      </div>
+    <%end%>
+
+    </br>
+
+    <%= link_to 'New', new_task_path, class: 'btn btn-primary' %>
+
+  </div>
+</div>
